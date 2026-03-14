@@ -1,8 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    turbo: false, // disable Turbopack
-  },
-};
+// next.config.mjs
+import { defineConfig } from 'next'
 
-module.exports = nextConfig;
+const nextConfig = defineConfig({
+  experimental: {
+    appDir: true,
+    turbo: false // disable Turbopack
+  },
+  reactStrictMode: true,
+})
+
+export default nextConfig

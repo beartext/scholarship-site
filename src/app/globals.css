@@ -1,8 +1,9 @@
+/* src/app/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* your custom styles here */
+/* Optional custom styling */
 body {
   @apply bg-white text-black font-sans;
 }
