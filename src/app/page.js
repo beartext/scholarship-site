@@ -1,23 +1,10 @@
-export default function Home() {
+export default function HomePage() {
   return (
-    <main style={{padding:"40px", fontFamily:"Georgia, serif"}}>
-      <h1>Scholarship Research Generator</h1>
-
-      <p>
-        This site hosts AI-generated research summaries.
+    <div className="bg-green-200 text-purple-800 p-10">
+      <h1 className="text-5xl font-bold">Tailwind Works!</h1>
+      <p className="mt-4 text-xl">
+        If you see green background and purple text, Tailwind is applied.
       </p>
-
-      <p>
-        Articles are accessible through unique links generated
-        by the browser extension.
-      </p>
-
-      <p>
-        Example format:
-      </p>
-
-      <code>/details/article-id</code>
-
-    </main>
-  )
+    </div>
+  );
 }
