@@ -5,5 +5,7 @@
 
 /* Optional custom styling */
 body {
-  @apply bg-white text-black font-sans;
+  background-color: hotpink; /* obvious change */
+  font-size: 24px;           /* bigger font */
+  color: white;               /* readable */
 }
