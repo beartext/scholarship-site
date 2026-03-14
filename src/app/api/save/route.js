@@ -30,7 +30,7 @@ export async function POST(req) {
     }
 
     // Construct the URL for the details page
-    const url = `http://localhost:3000/details/${id}`;
+    const url = `${process.env.NEXT_PUBLIC_SITE_URL}/details/${id}`;
 
     console.log('Saved entry:', { topic, summary, sources, url });
 
