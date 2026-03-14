@@ -1,0 +1,7 @@
+{
+  "build": {
+    "env": {},
+    "builder": "next",
+    "use": "webpack"
+  }
+}
