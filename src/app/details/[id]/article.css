@@ -1,123 +1,33 @@
-.page{
-  display:flex;
-  justify-content:center;
-  padding:60px 20px;
-  background:#f5f5f5;
-  min-height:100vh;
-}
+/* src/app/details/[id]/article.css */
 
-.article{
-  max-width:900px;
-  width:100%;
-  background:white;
-  padding:60px;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.article {
+  max-width: 800px;
+  margin: 40px auto;
   font-family: Georgia, serif;
-  color:#111;
-  overflow-wrap: break-word;
+  line-height: 1.7;
 }
 
-/* title */
-
-.title{
-  font-size:42px;
-  margin-bottom:40px;
-  color:#000;
+.article h1 {
+  font-size: 36px;
+  margin-top: 30px;
 }
 
-/* markdown body */
-
-.markdown{
-  font-size:18px;
-  line-height:1.75;
-  color:#111;
+.article h2 {
+  font-size: 28px;
+  margin-top: 24px;
 }
 
-/* headings */
-
-.markdown h1{
-  font-size:36px;
-  margin-top:40px;
-  margin-bottom:15px;
+.article p {
+  margin: 16px 0;
 }
 
-.markdown h2{
-  font-size:30px;
-  margin-top:40px;
-  margin-bottom:15px;
+.article table {
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.markdown h3{
-  font-size:24px;
-  margin-top:30px;
-  margin-bottom:10px;
-}
-
-.markdown h4{
-  font-size:20px;
-  margin-top:25px;
-  margin-bottom:8px;
-}
-
-/* paragraphs */
-
-.markdown p{
-  margin-bottom:20px;
-}
-
-/* lists */
-
-.markdown ul{
-  padding-left:24px;
-  margin-bottom:20px;
-}
-
-.markdown ol{
-  padding-left:24px;
-  margin-bottom:20px;
-}
-
-/* links */
-
-.markdown a{
-  color:#1d4ed8;
-  text-decoration:underline;
-}
-
-/* tables */
-
-.markdown table{
-  width:100%;
-  border-collapse:collapse;
-  margin:30px 0;
-  display:block;
-  overflow-x:auto;
-}
-
-.markdown th{
-  border:1px solid #ddd;
-  padding:10px;
-  background:#f0f0f0;
-  text-align:left;
-}
-
-.markdown td{
-  border:1px solid #ddd;
-  padding:10px;
-}
-
-/* code blocks */
-
-.markdown pre{
-  background:#f6f6f6;
-  padding:16px;
-  border-radius:6px;
-  overflow-x:auto;
-}
-
-.markdown code{
-  background:#f3f3f3;
-  padding:3px 6px;
-  border-radius:4px;
+.article th,
+.article td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
