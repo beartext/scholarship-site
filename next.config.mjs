@@ -1,12 +1,6 @@
-// next.config.mjs
-import { defineConfig } from 'next'
-
-const nextConfig = defineConfig({
-  experimental: {
-    appDir: true,
-    turbo: false // disable Turbopack
-  },
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-})
+}
 
 export default nextConfig
