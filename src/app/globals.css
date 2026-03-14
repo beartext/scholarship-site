@@ -2,25 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* article typography */
-.prose h1 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-top: 2rem;
-}
-
-.prose h2 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-}
-
-.prose h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.prose p {
-  line-height: 1.8;
-  margin-bottom: 1rem;
+/* your custom styles here */
+body {
+  @apply bg-white text-black font-sans;
 }
