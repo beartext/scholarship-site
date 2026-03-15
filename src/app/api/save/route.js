@@ -1,48 +1,59 @@
-// src/app/api/save/route.js
-import { supabase } from '../../../lib/supabase'; // <- relative path to your lib
-import { nanoid } from 'nanoid';
+import { supabase } from "../../../lib/supabase"
 
 export async function POST(req) {
+
   try {
-    // Parse incoming JSON
-    const body = await req.json();
-    const { topic, summary, sources } = body;
 
-    if (!topic || !summary) {
-      return new Response(
-        JSON.stringify({ error: 'Topic and summary are required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
+    const { text } = await req.json()
 
-    // Generate a unique ID for this entry
-    const id = nanoid();
+    const prompt = `
+Analyze the following claim using scholarly sources:
 
-    // Insert into Supabase table 'results' (adjust table name if needed)
-    const { data, error } = await supabase
-      .from('results') // make sure this matches your Supabase table name
-      .insert([
-        { id, topic, summary, sources }
-      ]);
+"${text}"
 
-    if (error) {
-      throw new Error(error.message);
-    }
+Provide a research summary and validity assessment in markdown.
+`
 
-    // Construct the URL for the details page
-    const url = `${process.env.NEXT_PUBLIC_SITE_URL}/details/${id}`;
+    const openai = await fetch(
+      "https://api.openai.com/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+        },
+        body: JSON.stringify({
+          model: "gpt-4o-mini",
+          messages: [{ role: "user", content: prompt }],
+          temperature: 0.2
+        })
+      }
+    )
 
-    console.log('Saved entry:', { topic, summary, sources, url });
+    const openaiData = await openai.json()
 
-    return new Response(JSON.stringify({ url, data }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  } catch (err) {
-    console.error('Error in /api/save:', err.message);
-    return new Response(
-      JSON.stringify({ error: err.message }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    const summary = openaiData.choices[0].message.content
+
+    const id = crypto.randomUUID()
+
+    await supabase.from("results").insert({
+      id,
+      topic: text.slice(0, 120),
+      summary
+    })
+
+    return Response.json({
+      url: `https://scholar-shipai.vercel.ai/details/${id}`
+    })
+
+  } catch (error) {
+
+    console.error(error)
+
+    return Response.json({
+      error: error.message
+    }, { status: 500 })
+
   }
+
 }

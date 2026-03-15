@@ -1,8 +1,8 @@
 import "./globals.css"
 
 export const metadata = {
-  title: "Scholarship Research Generator",
-  description: "AI generated research summaries",
+  title: "Scholar Ship",
+  description: "research summaries",
 }
 
 export default function RootLayout({ children }) {
